@@ -4,11 +4,23 @@ import './App.css';
 const targetWord = 'REACT'; // Das Zielwort
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
   const [guesses, setGuesses] = useState(Array(6).fill(''));
   const [currentGuess, setCurrentGuess] = useState('');
   const [currentRow, setCurrentRow] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [message, setMessage] = useState('');
+
+  const handleLogin = () => {
+    if (username && password) {
+      setIsLoggedIn(true);
+    } else {
+      alert('Bitte geben Sie einen Benutzernamen und ein Passwort ein.');
+    }
+  };
 
   const handleKeyPress = (key) => {
     if (gameOver) return;
@@ -40,6 +52,27 @@ const App = () => {
     if (targetWord[index] === letter) return 'green';
     return 'yellow';
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="login">
+        <h2>Login</h2>
+        <input
+          type="text"
+          placeholder="Benutzername"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Passwort"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Einloggen</button>
+      </div>
+    );
+  }
 
   return (
     <div className="App">
