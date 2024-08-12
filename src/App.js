@@ -69,7 +69,8 @@ const App = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>Einloggen</button>
+        <button onClick={handleLogin}>login</button>
+
       </div>
     );
   }
@@ -106,6 +107,21 @@ const App = () => {
             ))}
           </div>
         ))}
+        
+
+        {/*Tastatur mit veränderter  */}
+        {/*['ABCDEFGHIJ', 'KLMNOPQR', 'STVWXYZ'].map((row, i) => (
+          <div key={i} className="keyboard-row">
+            {row.split('').map((key) => (
+              <button key={key} onClick={() => handleKeyPress(key)}>
+                {key}
+              </button>
+            ))}
+          </div>
+        ))*/}
+
+
+
         <div className="keyboard-row">
           <button onClick={() => handleKeyPress('Enter')}>Enter</button>
           <button onClick={() => handleKeyPress('Backspace')}>Backspace</button>
