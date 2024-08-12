@@ -16,7 +16,8 @@ const App = () => {
     if (key === 'Enter') {
       if (currentGuess.length !== 5) return;
 
-      // Überprüfen, ob das Wort korrekt ist
+      setGuesses(guesses.map((guess, i) => (i === currentRow ? currentGuess : guess)));
+
       if (currentGuess === targetWord) {
         setMessage('Herzlichen Glückwunsch! Du hast das Spiel gewonnen!');
         setGameOver(true);
@@ -24,7 +25,6 @@ const App = () => {
         setMessage('Spiel vorbei! Das Wort war: ' + targetWord);
         setGameOver(true);
       } else {
-        setGuesses(guesses.map((guess, i) => (i === currentRow ? currentGuess : guess)));
         setCurrentGuess('');
         setCurrentRow(currentRow + 1);
       }
@@ -54,7 +54,7 @@ const App = () => {
                   key={j}
                   className="cell"
                   style={{
-                    backgroundColor: guess && i < currentRow ? getBgColor(guess[j], j) : 'white',
+                    backgroundColor: guess && i <= currentRow ? getBgColor(guess[j], j) : 'white',
                   }}
                 >
                   {guess[j] || (i === currentRow ? currentGuess[j] : '')}
