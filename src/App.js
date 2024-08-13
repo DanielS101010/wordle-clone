@@ -70,10 +70,8 @@ const App = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {/*button>login</button>*/}
         <button onClick={handleLogin}>login</button>
-        {/*<button onClick={handleLogin}>Sign in</button>*/}
-        {/*button>login</button>*/}
+
         </div>
     );
   }
