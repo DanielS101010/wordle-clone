@@ -60,13 +60,13 @@ const App = () => {
         <h2>Login</h2>
         <input
           type="text"
-          placeholder="Benutzername"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
-          placeholder="Passwort"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
