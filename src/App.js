@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const targetWord = 'REACT'; // Das Zielwort
+const words = ['APFEL', 'BLUME', 'LAMPE', 'HAFEN', 'FRUST', 'GABEL', 'TEICH', 'WETTE','TORTE'];
+const targetWord = words[Math.floor(Math.random() * words.length)];
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
